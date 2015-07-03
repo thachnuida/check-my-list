@@ -5,12 +5,16 @@ angular.module('checklists').controller('ChecklistsController', ['$scope', '$sta
 	function($scope, $stateParams, $location, Authentication, Checklists) {
 		$scope.authentication = Authentication;
 
+		// Init empty checklist
+		$scope.checklist = {
+			name: '',
+			items: []
+		};
+
 		// Create new Checklist
 		$scope.create = function() {
 			// Create new Checklist object
-			var checklist = new Checklists ({
-				name: this.name
-			});
+			var checklist = new Checklists ($scope.checklist);
 
 			// Redirect after save
 			checklist.$save(function(response) {
@@ -23,9 +27,14 @@ angular.module('checklists').controller('ChecklistsController', ['$scope', '$sta
 			});
 		};
 
+		// Add new item for checklist
+		$scope.addNewItem = function() {
+			$scope.checklist.items.push({content: '', isCheck: false});
+		};
+
 		// Remove existing Checklist
 		$scope.remove = function(checklist) {
-			if ( checklist ) { 
+			if ( checklist ) {
 				checklist.$remove();
 
 				for (var i in $scope.checklists) {
@@ -58,7 +67,7 @@ angular.module('checklists').controller('ChecklistsController', ['$scope', '$sta
 
 		// Find existing Checklist
 		$scope.findOne = function() {
-			$scope.checklist = Checklists.get({ 
+			$scope.checklist = Checklists.get({
 				checklistId: $stateParams.checklistId
 			});
 		};

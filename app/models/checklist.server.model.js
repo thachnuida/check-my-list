@@ -16,6 +16,14 @@ var ChecklistSchema = new Schema({
 		required: 'Please fill Checklist name',
 		trim: true
 	},
+	key: {
+		type: String,
+		unique: true
+	},
+	items: [{
+		content: String,
+		isCheck: Boolean
+	}],
 	created: {
 		type: Date,
 		default: Date.now
