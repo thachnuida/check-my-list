@@ -55,6 +55,31 @@ exports.update = function(req, res) {
 };
 
 /**
+ * Update item in Checklist
+ */
+exports.updateItem = function(req, res) {
+	var checklist = req.checklist;
+	var isCheck = req.body.isCheck;
+	var itemId = req.params.itemId;
+
+	if (typeof(isCheck) !== 'boolean') {
+		return res.status(400).send({
+			message: errorHandler.ERRORS.WRONG_VALUE_DATA
+		});
+	} else {
+		Checklist.update({'items._id': itemId}, {'$set': {'items.$.isCheck': isCheck}}, function(err) {
+			if (err) {
+				res.status(400).send({
+					message: errorHandler.getErrorMessage(err)
+				});
+			} else {
+				res.jsonp({changed: true});
+			}
+		});
+	}
+};
+
+/**
  * Delete an Checklist
  */
 exports.delete = function(req, res) {

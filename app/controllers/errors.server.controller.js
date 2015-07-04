@@ -40,3 +40,10 @@ exports.getErrorMessage = function(err) {
 
 	return message;
 };
+
+/**
+ * Error messages for server
+ */
+exports.ERRORS = {
+	WRONG_VALUE_DATA: 'Wrong value data.'
+};

@@ -10,7 +10,7 @@ angular.module('checklists').controller('ViewSharedChecklistsController', ['$sco
 
     // Catche item value change and call API to update
     $scope.changeItemValue = function(item) {
-      console.log(item);
+      $scope.checklist.updateItem(item);
     };
 	}
 ]);
