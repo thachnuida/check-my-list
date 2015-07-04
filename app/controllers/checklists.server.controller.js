@@ -6,7 +6,8 @@
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Checklist = mongoose.model('Checklist'),
-	_ = require('lodash');
+	_ = require('lodash'),
+	uuid = require('uuid');
 
 /**
  * Create a Checklist
@@ -14,6 +15,7 @@ var mongoose = require('mongoose'),
 exports.create = function(req, res) {
 	var checklist = new Checklist(req.body);
 	checklist.user = req.user;
+	checklist.key = uuid.v4();
 
 	checklist.save(function(err) {
 		if (err) {
@@ -72,7 +74,7 @@ exports.delete = function(req, res) {
 /**
  * List of Checklists
  */
-exports.list = function(req, res) { 
+exports.list = function(req, res) {
 	Checklist.find().sort('-created').populate('user', 'displayName').exec(function(err, checklists) {
 		if (err) {
 			return res.status(400).send({
@@ -87,8 +89,8 @@ exports.list = function(req, res) {
 /**
  * Checklist middleware
  */
-exports.checklistByID = function(req, res, next, id) { 
-	Checklist.findById(id).populate('user', 'displayName').exec(function(err, checklist) {
+exports.checklistByID = function(req, res, next, id) {
+	Checklist.findOne({key: id}).populate('user', 'displayName').exec(function(err, checklist) {
 		if (err) return next(err);
 		if (! checklist) return next(new Error('Failed to load Checklist ' + id));
 		req.checklist = checklist ;

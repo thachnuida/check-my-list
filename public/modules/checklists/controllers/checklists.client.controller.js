@@ -54,7 +54,7 @@ angular.module('checklists').controller('ChecklistsController', ['$scope', '$sta
 			var checklist = $scope.checklist;
 
 			checklist.$update(function() {
-				$location.path('checklists/' + checklist._id);
+				$location.path('checklists/' + checklist.key);
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
@@ -67,8 +67,11 @@ angular.module('checklists').controller('ChecklistsController', ['$scope', '$sta
 
 		// Find existing Checklist
 		$scope.findOne = function() {
-			$scope.checklist = Checklists.get({
+			Checklists.get({
 				checklistId: $stateParams.checklistId
+			}).$promise.then(function(data) {
+				$scope.checklist = data;
+				$scope.shareUrl = 'http://' + location.host + '/#!/checklists/shared/' + $scope.checklist.key;
 			});
 		};
 	}

@@ -1,12 +1,13 @@
 <section data-ng-controller="ChecklistsController" data-ng-init="findOne()">
 	<div class="page-header">
 		<h1 data-ng-bind="checklist.name"></h1>
+		<div class="well">{{ shareUrl }}</div>
 		<p ng-repeat="item in checklist.items">
 			<label><input type="checkbox" ng-model="item.isCheck"/> {{item.content }}</label>
 		</p>
 	</div>
 	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == checklist.user._id))">
-		<a class="btn btn-primary" href="/#!/checklists/{{checklist._id}}/edit">
+		<a class="btn btn-primary" href="/#!/checklists/{{checklist.key}}/edit">
 			<i class="glyphicon glyphicon-edit"></i>
 		</a>
 		<a class="btn btn-primary" data-ng-click="remove();">
