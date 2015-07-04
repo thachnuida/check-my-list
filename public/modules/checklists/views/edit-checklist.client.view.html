@@ -3,7 +3,7 @@
         <h1>Edit Checklist</h1>
     </div>
     <div class="col-md-12">
-        <form class="form-horizontal" data-ng-submit="update()" novalidate>
+        <form class="form-horizontal" novalidate>
             <fieldset>
                 <div class="form-group">
                     <label class="control-label" for="name">Name</label>
@@ -20,7 +20,7 @@
                     <button class="btn btn-default" ng-click="addNewItem()">Add item</button>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Update" class="btn btn-success">
+                    <input type="submit" value="Update" class="btn btn-success" ng-click="update()">
                 </div>
 				<div data-ng-show="error" class="text-danger">
 					<strong data-ng-bind="error"></strong>
