@@ -1,0 +1,16 @@
+<section data-ng-controller="ViewSharedChecklistsController">
+	<div class="page-header">
+		<h1 data-ng-bind="checklist.name"></h1>
+		<p ng-repeat="item in checklist.items">
+			<label><input type="checkbox" ng-model="item.isCheck" ng-change="changeItemValue(item)"/> {{item.content }}</label>
+		</p>
+	</div>
+	<small>
+		<em class="text-muted">
+			Posted on
+			<span data-ng-bind="checklist.created | date:'mediumDate'"></span>
+			by
+			<span data-ng-bind="checklist.user.displayName"></span>
+		</em>
+	</small>
+</section>

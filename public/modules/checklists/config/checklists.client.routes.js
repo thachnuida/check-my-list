@@ -20,6 +20,10 @@ angular.module('checklists').config(['$stateProvider',
 		state('editChecklist', {
 			url: '/checklists/:checklistId/edit',
 			templateUrl: 'modules/checklists/views/edit-checklist.client.view.html'
+		}).
+		state('viewSharedChecklist', {
+			url: '/checklists/shared/:checklistId',
+			templateUrl: 'modules/checklists/views/view-shared-checklist.client.view.html'
 		});
 	}
 ]);
