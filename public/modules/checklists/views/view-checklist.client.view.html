@@ -1,11 +1,25 @@
 <section data-ng-controller="ChecklistsController" data-ng-init="findOne()">
 	<div class="page-header">
-		<h1 data-ng-bind="checklist.name"></h1>
-		<div class="well">{{ shareUrl }}</div>
+		<h2 data-ng-bind="checklist.name"></h2>
+		<label>Share link</label>
+		<div class="input-group-share-url">
+			<input type="text" class="input-share-url" readonly="readonly" ng-model="shareUrl"/>
+			<span class="input-group-share-url-button">
+				<button class="btn btn-warning" title="Copy to clipboard"><i class="glyphicon glyphicon-copy"></i></button>
+			</span>
+		</div>
+	</div>
+	<div class="checklist-items">
 		<p ng-repeat="item in checklist.items">
 			<label><input type="checkbox" ng-model="item.isCheck" disabled/> {{item.content }}</label>
 		</p>
 	</div>
+	<small>
+		<em class="text-muted">
+			Created on
+			<span data-ng-bind="checklist.created | date:'mediumDate'"></span>
+		</em>
+	</small>
 	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == checklist.user._id))">
 		<a class="btn btn-primary" href="/#!/checklists/{{checklist.key}}/edit">
 			<i class="glyphicon glyphicon-edit"></i>
@@ -14,12 +28,4 @@
 			<i class="glyphicon glyphicon-trash"></i>
 		</a>
 	</div>
-	<small>
-		<em class="text-muted">
-			Posted on
-			<span data-ng-bind="checklist.created | date:'mediumDate'"></span>
-			by
-			<span data-ng-bind="checklist.user.displayName"></span>
-		</em>
-	</small>
 </section>

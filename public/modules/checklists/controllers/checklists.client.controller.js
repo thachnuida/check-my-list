@@ -74,5 +74,13 @@ angular.module('checklists').controller('ChecklistsController', ['$scope', '$sta
 				$scope.shareUrl = 'http://' + location.host + '/#!/checklists/shared/' + $scope.checklist.key;
 			});
 		};
+
+		// Count checked item of checklist
+		$scope.countCheckItems = function(checklist) {
+			var count = 0;
+			for (var i = 0; i < checklist.items.length; i ++)
+				if (checklist.items[i].isCheck) count ++;
+			return count;
+		};
 	}
 ]);

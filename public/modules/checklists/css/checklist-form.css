@@ -26,3 +26,24 @@
 .btn-add-item {
   margin-left: 24px;
 }
+
+.input-group-share-url {
+  display: table;
+  width: 100%;
+}
+
+.input-share-url {
+  position: relative;
+  display: table-cell;
+  width: 400px;
+}
+
+.input-group-share-url-button {
+  display: table-cell;
+  width: 100%;
+}
+
+.input-group-share-url-button button {
+  padding: 0 10px;
+  font-size: 14px;
+}

@@ -13,3 +13,11 @@
 .ng-valid.ng-dirty {
 	border-color: #78FA89;
 }
+
+.open .dropdown-menu {
+  display: block;
+}
+
+.btn-fullwidth {
+  width: 100%;
+}
