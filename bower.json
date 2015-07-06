@@ -1,17 +1,21 @@
 {
-	"name": "done-my-checklist",
-	"version": "0.0.1",
-	"description": "App that you can create a checklist and share for others. Build with MongoDB, Express, AngularJS and NodeJS",
-	"dependencies": {
-		"bootstrap": "~3",
-		"angular": "~1.2",
-		"angular-resource": "~1.2",
-		"angular-mocks": "~1.2",
-		"angular-animate": "~1.2",
-		"angular-touch": "~1.2",
-		"angular-sanitize": "~1.2",
-		"angular-bootstrap": "~0.11.2",
-		"angular-ui-utils": "~0.1.1",
-		"angular-ui-router": "~0.2.11"
-	}
+  "name": "done-my-checklist",
+  "version": "0.0.1",
+  "description": "App that you can create a checklist and share for others. Build with MongoDB, Express, AngularJS and NodeJS",
+  "dependencies": {
+    "bootstrap": "~3",
+    "angular": "~1.3",
+    "angular-resource": "~1.3",
+    "angular-mocks": "~1.3",
+    "angular-animate": "~1.3",
+    "angular-touch": "~1.3",
+    "angular-sanitize": "~1.3",
+    "angular-bootstrap": "~0.13.0",
+    "angular-ui-utils": "~0.1.1",
+    "angular-ui-router": "~0.2.11",
+    "ng-sortable": "~1.2.2"
+  },
+  "resolutions": {
+    "angular": "1.3.x"
+  }
 }
