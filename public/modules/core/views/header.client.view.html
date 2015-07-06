@@ -33,11 +33,11 @@
 			</li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right" dropdown data-ng-show="authentication.user">
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" dropdown-toggle>
+			<li dropdown>
+				<a href="#" dropdown-toggle>
 					<span data-ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
 				</a>
-				<ul class="dropdown-menu">
+				<ul class="dropdown-menu" role="menu">
 					<li>
 						<a href="/#!/settings/profile">Edit Profile</a>
 					</li>
