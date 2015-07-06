@@ -18,7 +18,7 @@ angular.module('checklists').controller('ChecklistsController', ['$scope', '$sta
 
 			// Redirect after save
 			checklist.$save(function(response) {
-				$location.path('checklists/' + response._id);
+				$location.path('checklists/' + response.key);
 
 				// Clear form fields
 				$scope.name = '';
