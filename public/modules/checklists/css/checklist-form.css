@@ -1,0 +1,28 @@
+.form-group-checklist-item .controls {
+  padding-left: 24px;
+}
+
+.form-group-checklist-item.as-sortable-item .controls {
+  position: relative;
+}
+
+.form-group-checklist-item.as-sortable-item .controls:hover .checklist-item-sortable-handler{
+  display: block;
+}
+
+.checklist-item-sortable-handler {
+  display: none;
+  position: absolute;
+  left: -8px;
+  top: -1px;
+  font-size: 25px;
+  opacity: 0.5;
+}
+
+.checklist-item-sortable-handler i:last-child {
+  margin-left: -16px;
+}
+
+.btn-add-item {
+  margin-left: 24px;
+}

@@ -1,0 +1,9 @@
+.form-group-header {
+  padding-bottom: 10.5px;
+  margin: 46px 0 23px;
+}
+
+.form-group-header input.form-control {
+  font-weight: bold;
+  font-size: 20px;
+}

@@ -13,7 +13,8 @@ module.exports = {
 	assets: {
 		lib: {
 			css: [
-				'public/lib/bootstrap/dist/css/bootstrap-paper.min.css'
+				'public/lib/bootstrap/dist/css/bootstrap-paper.min.css',
+				'public/lib/ng-sortable/dist/ng-sortable.css'
 			],
 			js: [
 				'public/lib/angular/angular.js',
@@ -23,6 +24,7 @@ module.exports = {
 				'public/lib/angular-sanitize/angular-sanitize.js',
 				'public/lib/angular-ui-router/release/angular-ui-router.js',
 				'public/lib/angular-ui-utils/ui-utils.js',
+				'public/lib/ng-sortable/dist/ng-sortable.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js'
 			]
 		},
