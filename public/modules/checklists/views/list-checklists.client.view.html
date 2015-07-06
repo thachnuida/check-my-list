@@ -1,6 +1,6 @@
 <section data-ng-controller="ChecklistsController" data-ng-init="find()">
     <div class="page-header">
-        <a class="btn btn-success btn-fullwidth"><i class="glyphicon glyphicon-plus"></i> Create new Checklist</a>
+        <a class="btn btn-success btn-fullwidth" href="/#!/checklists/create"><i class="glyphicon glyphicon-plus"></i> Create new Checklist</a>
     </div>
     <div class="list-group">
         <a data-ng-repeat="checklist in checklists" data-ng-href="#!/checklists/{{checklist.key}}" class="list-group-item">
