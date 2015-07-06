@@ -6,7 +6,7 @@
         <a data-ng-repeat="checklist in checklists" data-ng-href="#!/checklists/{{checklist.key}}" class="list-group-item">
 			<h4 class="list-group-item-heading">
                 {{ checklist.name }}
-                <small class="pull-right">{{ countCheckItems(checklist) }}/{{ checklist.items.length }} done</small>
+                <small class="pull-right"><i class="glyphicon glyphicon-ok"></i> {{ countCheckItems(checklist) }}/{{ checklist.items.length }}</small>
             </h4>
             <small class="list-group-item-text">
                 Created on
