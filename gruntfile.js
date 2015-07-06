@@ -49,6 +49,14 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		copy: {
+			main: {
+				files: [
+					// Copy bootstrap paper to bootstrap foler
+					{expand: true, flatten: true, cwd:'public/paper/', src: ['*'], dest: 'public/lib/bootstrap/dist/css/', filter: 'isFile'}
+				]
+			}
+		},
 		jshint: {
 			all: {
 				src: watchFiles.clientJS.concat(watchFiles.serverJS),
@@ -167,7 +175,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('secure', ['env:secure', 'lint', 'concurrent:default']);
 
 	// Lint task(s).
-	grunt.registerTask('lint', ['jshint', 'csslint']);
+	grunt.registerTask('lint', ['copy', 'jshint', 'csslint']);
 
 	// Build task(s).
 	grunt.registerTask('build', ['lint', 'loadConfig', 'ngAnnotate', 'uglify', 'cssmin']);

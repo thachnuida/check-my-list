@@ -3,7 +3,7 @@
 		<h1 data-ng-bind="checklist.name"></h1>
 		<div class="well">{{ shareUrl }}</div>
 		<p ng-repeat="item in checklist.items">
-			<label><input type="checkbox" ng-model="item.isCheck"/> {{item.content }}</label>
+			<label><input type="checkbox" ng-model="item.isCheck" disabled/> {{item.content }}</label>
 		</p>
 	</div>
 	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == checklist.user._id))">
